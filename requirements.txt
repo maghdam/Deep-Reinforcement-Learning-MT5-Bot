@@ -1,0 +1,14 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+ta
+stable-baselines3
+gymnasium
+MetaTrader5
+jupyter
+nbformat
+nbconvert
+python-dotenv
+QuantStats
+talib
