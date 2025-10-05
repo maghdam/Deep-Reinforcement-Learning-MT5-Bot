@@ -247,11 +247,12 @@ The `3_Backtest.ipynb` notebook evaluates all trained models and generates a com
 | AvgHoldBars  | 847.694255  |
 ![Equity Curve Comparison](notebooks/reports/ppo_EURUSD.png)
 ![Equity Curve Comparison](notebooks/reports/newplot.png)
-### Individual Model Reports
 
+
+📊 Individual model reports (PPO, A2C, DQN) are available in `notebooks/reports/`.  
+To view them, download the HTML files locally for full interactivity.
 - **[View PPO Report](notebooks/reports/quantstats_report_ppo_EURUSD_M15.html)**
-- **[View A2C Report](notebooks/reports/quantstats_report_a2c_EURUSD_M15.html)**
-- **[View DQN Report](notebooks/reports/quantstats_report_dqn_EURUSD_M15.html)**
+
 
 > Note: You may need to download the HTML files to view the interactive charts. GitHub provides a static preview.
 
