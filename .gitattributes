@@ -1,1 +1,2 @@
-notebooks/reports/* linguist-documentation
+notebooks/reports/* linguist-generated=true
+*.ipynb linguist-language=Python
