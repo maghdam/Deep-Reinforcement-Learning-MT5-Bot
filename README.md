@@ -259,7 +259,7 @@ The `3_Backtest.ipynb` notebook evaluates all trained models and generates a com
 
 ## License
 
-MIT (or your choice).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
