@@ -1,2 +1,9 @@
-notebooks/reports/* linguist-generated=true
+# Exclude HTML reports from language stats
+notebooks/reports/*.html linguist-generated=true
+
+# Force Jupyter notebooks to count as Python
 *.ipynb linguist-language=Python
+
+# Optional: exclude other large non-code files
+*.csv linguist-generated=true
+*.json linguist-generated=true
