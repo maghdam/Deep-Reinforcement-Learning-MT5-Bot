@@ -254,7 +254,8 @@ To view them, download the HTML files locally for full interactivity.
 
 📊 [View PPO quantstats  Report (Rendered)](https://htmlpreview.github.io/?https://github.com/maghdam/Deep-Reinforcement-Learning-MT5-Bot/blob/master/notebooks/reports/qs_ppo_EURUSD_M15.html)
 
-📊 [View PPO plotly Report (Rendered)](https://htmlpreview.github.io/?https://github.com/maghdam/Deep-Reinforcement-Learning-MT5-Bot/blob/master/notebooks/reports/plotly/plotly_ppo_EURUSD_M15.html)
+📊 [View PPO Plotly Report (Rendered)](https://raw.githack.com/maghdam/Deep-Reinforcement-Learning-MT5-Bot/master/notebooks/reports/plotly/plotly_ppo_EURUSD_M15.html)
+
 
 
 > Note: You may need to download the HTML files to view the interactive charts. GitHub provides a static preview.
