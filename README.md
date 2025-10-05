@@ -230,23 +230,21 @@ The `3_Backtest.ipynb` notebook evaluates all trained models and generates a com
 
 ### Equity Curve Comparison
 
----
-================ ppo_EURUSD_M15.zip | PPO ================
-bars            9956.000000
-Sharpe             0.896809
-Sortino            1.245242
-CAGR               0.065507
-Calmar             1.755408
-MaxDD             -0.037317
-WinRate            0.476195
-ProfitFactor       1.018795
-Exposure           0.995078
-Trades           238.000000
-AvgHoldBars      847.694255
-dtype: float64
-
----
-
+| Metric       | Value       |
+|--------------|-------------|
+| Model        | PPO         |
+| File         | ppo_EURUSD_M15.zip |
+| Bars         | 9956.0      |
+| Sharpe       | 0.896809    |
+| Sortino      | 1.245242    |
+| CAGR         | 0.065507    |
+| Calmar       | 1.755408    |
+| MaxDD        | -0.037317   |
+| WinRate      | 0.476195    |
+| ProfitFactor | 1.018795    |
+| Exposure     | 0.995078    |
+| Trades       | 238.0       |
+| AvgHoldBars  | 847.694255  |
 ![Equity Curve Comparison](notebooks/reports/ppo_EURUSD.png)
 ![Equity Curve Comparison](notebooks/reports/newplot.png)
 ### Individual Model Reports
