@@ -229,6 +229,8 @@ A: Update `action_to_signals(...)` to match your model’s action semantics (see
 The `3_Backtest.ipynb` notebook evaluates all trained models and generates a comparison of their equity curves, along with detailed individual performance reports.
 
 ### Equity Curve Comparison
+
+---
 ================ ppo_EURUSD_M15.zip | PPO ================
 bars            9956.000000
 Sharpe             0.896809
@@ -242,6 +244,8 @@ Exposure           0.995078
 Trades           238.000000
 AvgHoldBars      847.694255
 dtype: float64
+
+---
 
 ![Equity Curve Comparison](notebooks/reports/ppo_EURUSD.png)
 ![Equity Curve Comparison](notebooks/reports/newplot.png)
