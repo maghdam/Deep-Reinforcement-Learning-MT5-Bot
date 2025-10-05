@@ -6,21 +6,19 @@ This repo keeps research and production concerns separate:
 - **Notebooks** for data/feature engineering, training, optimization, backtesting and reports.
 - **CLI** for **live inference only** (stable, safe, log‑rich).
 
-> ⚠️ Educational use only. Trading involves risk. You are responsible for your own deployment and keys.
 
 ---
 
 ## Highlights
 
-- **Stable‑Baselines3** agents (PPO primary; A2C, DQN optional in notebooks).
-- Clean **live trading CLI** (`live_bot_ascii_market.py`) with multi-algorithm support:
+- **Stable‑Baselines3** agents: PPO, A2C, DQN.
+- Clean **live trading CLI** (`live_bot.py`) with multi-algorithm support:
   - **DRY‑RUN** by default (no orders until `--live`).
   - **Market guard**: weekend + stale tick check (configurable).
   - FinRL‑style **verbose logs** + rotating file logs.
   - Feature snapshot (e.g., `close`, `ma_fast`, `ma_slow`, `rsi`).
 - Backtest notebook with equity curve; optional QuantStats HTML report.
 - Config via `.env` + CLI flags.
-- Windows‑safe ASCII logs (no Unicode issues in CP1252 consoles).
 
 ---
 
@@ -29,8 +27,8 @@ This repo keeps research and production concerns separate:
 ```
 .
 ├─ notebooks/
-│  ├─ 1_Data_Features.ipynb
-│  ├─ 2_Train_Optimize.ipynb
+│  ├─ 1_Data.ipynb
+│  ├─ 2_Train.ipynb
 │  ├─ 3_Backtest.ipynb
 │  └─ 4_Live_Demo.ipynb
 │  └─ models/
@@ -38,16 +36,14 @@ This repo keeps research and production concerns separate:
 │    └─ ppo_{SYMBOL}_{TF}.zip    # exported Stable‑Baselines3 model
 ├─ adapters/
 │  └─ broker.py                  # MT5 wrapper used by the CLI
-│  └─ mt5.py
+│  └─ mt5.py                     # MT5 API functions
 ├─ features.py                   # add_indicators(...) etc.
 ├─ live_bot.py                   # ASCII logs + market‑hours guard  ← recommended
-├─ utils.py                      # ASCII logs
+├─ utils.py                     
 ├─ requirements.txt
 ├─ .env.example
 └─ README.md
 ```
-
-> Names may vary slightly depending on your local structure. The CLI only needs: `adapters/broker.py`, `features.py`, `models/selected_features.json`, and a model zip.
 
 ---
 
@@ -73,10 +69,10 @@ Use the notebooks (recommended) to train and save:
 ### 4) Run the live CLI (default DRY‑RUN)
 ```bash
 # Windows PowerShell
-python live_bot_ascii_market.py --symbol EURUSD --timeframe M15
+python live_bot.py --symbol EURUSD --timeframe M15
 
 # Place real orders (be careful)
-python live_bot_ascii_market.py --symbol EURUSD --timeframe M15 --live
+python live_bot.py --symbol EURUSD --timeframe M15 --live
 ```
 
 The bot will:
@@ -94,7 +90,7 @@ Logs are streamed to console and to `logs/live_bot.log` (rotating).
 ## CLI options
 
 ```bash
-python live_bot_ascii_market.py --help
+python live_bot.py --help
 ```
 
 Important flags:
@@ -125,7 +121,7 @@ See **.env.example** in this repo. Key fields:
 MT5_LOGIN=12345678
 MT5_PASSWORD=your_password
 MT5_SERVER=YourBroker-Server
-MT5_PATH=C:\Program Files\MetaTrader 5	erminal64.exe
+
 
 # Defaults (used if CLI flags are not provided)
 TRAINING_SYMBOL=EURUSD
@@ -163,6 +159,7 @@ from stable_baselines3 import PPO
 import pandas as pd, numpy as np, matplotlib.pyplot as plt
 
 model = PPO.load("models/ppo_EURUSD_M15.zip")
+
 # df_test & feature_cols prepared earlier…
 obs, _ = env.reset()
 equity = [1.0]
@@ -177,7 +174,6 @@ equity.plot(title="Equity Curve")
 plt.show()
 ```
 
-> Tip: export static assets (equity PNG, HTML report) to `reports/` and link them in your model registry notes.
 
 ---
 
@@ -247,7 +243,7 @@ Trades           238.000000
 AvgHoldBars      847.694255
 dtype: float64
 
-![Equity Curve Comparison](notebooks/reports/equity_curve_comparison.png)
+![Equity Curve Comparison](notebooks/reports/ppo_EURUSD.png)
 ![Equity Curve Comparison](notebooks/reports/newplot.png)
 ### Individual Model Reports
 
