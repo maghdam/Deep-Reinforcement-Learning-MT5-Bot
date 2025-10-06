@@ -97,7 +97,7 @@ def place_market_order(symbol: str, side: str, volume: float, sl: Optional[float
         "deviation": int(deviation),
         "magic": int(magic) if magic is not None else int(os.getenv("MAGIC_NUMBER","234002")),
         "comment": comment[:31],
-        "type_filling": mt5.ORDER_FILLING_FOK,
+        "type_filling": mt5.ORDER_FILLING_IOC,
         "type_time": mt5.ORDER_TIME_GTC,
     }
     result = mt5.order_send(request)
@@ -130,7 +130,7 @@ def close_position(position_id: int) -> Dict[str, Any]:
         "deviation": int(os.getenv("DEVIATION","20")),
         "magic": int(os.getenv("MAGIC_NUMBER","234002")),
         "comment": "close_position",
-        "type_filling": mt5.ORDER_FILLING_FOK,
+        "type_filling": mt5.ORDER_FILLING_IOC,
         "type_time": mt5.ORDER_TIME_GTC,
     }
     result = mt5.order_send(request)
